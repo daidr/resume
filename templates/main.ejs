@@ -1,0 +1,89 @@
+<main>
+  <% for(let section of content.sections) { %>
+  <section>
+    <h2 class="section__title"><%- generateMarkdownInline(section.title) %></h2>
+    <div class="section__wrapper">
+
+      <% for(let item of section.items) { %>
+
+      <div class="section__item">
+        <% if(item.title) { %>
+        <h3 class="section__item__title">
+          <span class="section__item__title__main">
+            <% if(item.image) { %>
+            <img class="section__item__image" src="<%= getInlineImage(item.image) %>" alt="<%= item.title %>" />
+            <% } else { %>
+            <div class="section__item__image__placeholder"></div>
+            <% } %>
+            <%- generateMarkdownInline(item.title) %>
+          </span>
+          <% if(item.time) { %>
+          <span class="section__item__title__time"><%= item.time %></span>
+          <% } %>
+        </h3>
+        <% } %>
+        <div class="section__item__content <%= item.title ? "section__item__content--has-title": "" %>">
+          <%- generateMarkdown(typeof item.content === 'string' ? item.content : item.content.join("\n")) %>
+        </div>
+      </div>
+      <% } %>
+  </section>
+  <% } %>
+</main>
+
+<style>
+  section {
+    margin-left: 15px;
+  }
+
+  .section__title {
+    margin-bottom: 5px;
+  }
+
+  .section__wrapper {
+    margin-left: 35px;
+  }
+
+  .section__item__title {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section__item__title__main {
+    display: flex;
+    align-items: center;
+  }
+
+  .section__item__title__time {
+    font-weight: lighter;
+    font-size: 18px;
+  }
+
+  .section__item__image {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 10px;
+  }
+
+  .section__item__image__placeholder {
+    width: calc(1.5em + 10px);
+  }
+
+  .section__item__content>p {
+    white-space: pre-wrap;
+  }
+
+  .section__item__content--has-title {
+    margin-left: 40px;
+  }
+
+  .section__item__content>* {
+    margin: 5px 0;
+  }
+
+  .section__item__content>ul {
+    margin-inline-start: 0px;
+  }
+</style>
