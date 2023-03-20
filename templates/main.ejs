@@ -23,7 +23,7 @@
         </h3>
         <% } %>
         <div class="section__item__content <%= item.title ? "section__item__content--has-title": "" %>">
-          <%- generateMarkdown(typeof item.content === 'string' ? item.content : item.content.join("\n")) %>
+          <%- typeof item.content === 'string' ? generateMarkdown(item.content) : item.content.map(c=>generateMarkdown(c)).join("") %>
         </div>
       </div>
       <% } %>
