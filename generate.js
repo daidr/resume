@@ -6,6 +6,7 @@ import { generateMarkdown, generateMarkdownInline } from "./utils/markdown.js";
 import icons from "./utils/icons.js";
 import { CONFIG } from "./config.js";
 import { debounce, emptyDir } from "./utils/_.js";
+import { minify } from "html-minifier";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -24,7 +25,7 @@ const templateEntry = join(__dirname, "templates", "index.ejs");
 
 const outputRoot = join(__dirname, "dist");
 
-const generateSpecifiedFile = async (locale) => {
+const generateSpecifiedFile = async (locale, compress) => {
   console.log(`[构建] 准备生成 ${locale} 版本`);
 
   // 获取文件路径
@@ -45,7 +46,7 @@ const generateSpecifiedFile = async (locale) => {
   };
 
   // 渲染HTML
-  const final = await new Promise((resolve, reject) => {
+  let final = await new Promise((resolve, reject) => {
     ejs.renderFile(templateEntry, context, {}, (err, str) => {
       if (err) {
         reject(err);
@@ -54,6 +55,19 @@ const generateSpecifiedFile = async (locale) => {
       }
     });
   });
+
+  // 压缩
+  if (compress) {
+    console.log(`[构建] 压缩中...`);
+    final = minify(final, {
+      minifyCSS: true,
+      preserveLineBreaks: true,
+      minifyURLs: true,
+      collapseWhitespace: true,
+      collapseInlineTagWhitespace: true,
+      collapseBooleanAttributes: true,
+    });
+  }
 
   // 写入文件
   await fs.writeFile(join(outputRoot, `${locale}.html`), final);
@@ -65,7 +79,7 @@ const generateSpecifiedFile = async (locale) => {
   console.log(`[构建] ${locale} 版本生成成功`);
 };
 
-const generate = async () => {
+const generate = async (compress) => {
   console.log("[构建] 准备开始构建...");
   // 获取所有locales
   const locales = (await fs.readdir(join(__dirname, "locales")))
@@ -76,7 +90,9 @@ const generate = async () => {
     });
 
   // 生成所有文件
-  await Promise.all(locales.map((locale) => generateSpecifiedFile(locale)));
+  await Promise.all(
+    locales.map((locale) => generateSpecifiedFile(locale, compress))
+  );
 
   console.log("[构建] 构建全部完成!");
 };
@@ -116,6 +132,6 @@ const generate = async () => {
     console.log("[DEV] 监听文件变化中...");
   } else {
     await emptyDir(outputRoot);
-    await generate();
+    await generate(true);
   }
 })();
