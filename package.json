@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "ejs": "^3.1.9",
+    "html-minifier": "^4.0.0",
     "markdown-it": "^13.0.1"
   }
 }
