@@ -1,0 +1,157 @@
+{
+    "$schema": "./$schema.json",
+    "title": "戴学舟 的简历",
+    "name": "戴学舟",
+    "profiles": [
+        {
+            "icon": "mail",
+            "label": "daidr@daidr.me",
+            "link": "mailto:daidr@daidr.me",
+            "alt": "Email"
+        },
+        {
+            "icon": "tel",
+            "label": "[Private]",
+            "alt": "Tel"
+        },
+        {
+            "icon": "github",
+            "label": "daidr",
+            "link": "https://github.com/daidr",
+            "alt": "GitHub"
+        },
+        {
+            "icon": "blog",
+            "label": "im.daidr.me",
+            "link": "https://im.daidr.me",
+            "alt": "Blog"
+        }
+    ],
+    "sections": [
+        {
+            "title": "教育经历",
+            "items": [
+                {
+                    "image": "hdu.png",
+                    "title": "杭州电子科技大学",
+                    "time": "2021.09 - 至今",
+                    "content": "专业：计算机科学与技术（本科）"
+                }
+            ]
+        },
+        {
+            "title": "技能",
+            "items": [
+                {
+                    "content": [
+                        "* **前端开发：** 掌握HTML、CSS、JavaScript(ES6)、TypeScript语法。能够使用常见的前端框架，例如Vue/React，会使用常见的原子化CSS库（例如TailwindCSS、WindiCSS）。热爱前端开发，平时比较喜欢设计样式、捣鼓网页动效。",
+                        "* **NodeJS：** 了解过Koa、Express等，能够使用NodeJS写一些简单的后端。",
+                        "* **语言：** JavaScript、TypeScript、Python、Java",
+                        "* 基本的计算机科学知识与科学素养"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "项目经历",
+            "items": [
+                {
+                    "image": "hduhelp.png",
+                    "title": "杭电助手 前端开发",
+                    "content": [
+                        "杭电助手是杭州电子科技大学的一个技术社团。为全校师生提供便利服务——例如查课表、查考试、查成绩、查水电、模拟选课等。",
+                        "本人主要负责[前端](https://cinnamon.hduhelp.com)的功能开发，前端基于React，使用了WindiCSS来方便样式的定义。"
+                    ],
+                    "time": "2021.10 - 至今"
+                },
+                {
+                    "image": "byteyouth.png",
+                    "title": "第五届字节青训营 前端进阶 [仿掘金SSR项目](https://github.com/campTeam/juejin-fe)",
+                    "content": [
+                        "大二寒假参加了第五届字节青训营，作为队长和大家一同完成了 [仿掘金SSR站点](https://github.com/campTeam/juejin-fe) 项目。 **获结业证书**，大项目未获奖",
+                        "这个项目后端采用Strapi，前端使用Nuxt3(Vue3)框架，实现了全站SSR，样式定义使用了WindiCSS。",
+                        "本人在这个项目中主要负责整体框架的搭建、Header相关逻辑开发、文章详情页（Markdown渲染/目录/相关文章）开发，并封装了大部分的API接口。"
+                    ],
+                    "time": "2023.01 - 2023.03"
+                }
+            ]
+        },
+        {
+            "title": "个人项目",
+            "items": [
+                {
+                    "image": "doulog.png",
+                    "title": "[『戴兜的小屋』博客前端](https://github.com/daidr/douLog)",
+                    "content": [
+                        "一个基于WordPress的博客前端（开发中），使用Nuxt3+Vue3开发，支持SSR。主要是为了学习Nuxt3 SSR如何实现。也尝试了一些新鲜的东西——比如Vue Transition的封装、利用ChatGPT生成摘要、js生成SVG实现圆角矩形的进度条（文章页的『返回顶部』按钮）等"
+                    ],
+                    "time": "2023.02"
+                },
+                {
+                    "image": "paimon-webext.png",
+                    "title": "[『派蒙Paimon』浏览器扩展](https://github.com/daidr/paimon-webext)",
+                    "content": [
+                        "这个扩展使用官方接口，让玩家在浏览器内查看原神游戏数据，扩展开发使用了Vite+Vue3+Windicss.",
+                        "这个扩展的本意是敦促自己去学习浏览器扩展的开发（当时是ManifestV2），后来发现大家都很喜欢用，于是便一直开发下去了。最近也重构支持了MV3，增加了不同语言的本地化支持。根据各应用商店统计，扩展约拥有6000用户。"
+                    ]
+                },
+                {
+                    "title": "[支持多语言的简历生成器](https://github.com/daidr/resume)",
+                    "content": [
+                        "一个支持多语言的简历生成器，用了一个下午的时间写出来的，主要是为了方便自己生成简历，这份简历就是用这个工具生成出来的。基于EJS模板引擎，使用MarkDownIt提供了markdown支持。支持dev模式，方便实时查看效果(需要Live Server配合)。能够在最终生成HTMl时，将图片以dataURL的形式嵌入，保持单文件方便提交。"
+                    ],
+                    "time": "2023"
+                },
+                {
+                    "image": "truth-table.png",
+                    "title": "[真值表绘制工具](https://github.com/daidr/truth-table)",
+                    "content": [
+                        "一个在线的真值表绘制工具，使用Vue3开发，能够支持大部分逻辑表达式，给出详细的分步真值表。词法和语法解析使用Antlr实现。",
+                        "该工具申请了软件著作权"
+                    ],
+                    "time": "2022"
+                },
+                {
+                    "image": "mc-skinviewer.png",
+                    "title": "[Minecraft SkinViewer](https://github.com/daidr/mc-skinviewer)",
+                    "content": [
+                        "一个除了切图，其他部分完全使用CSS实现的Minecraft皮肤预览组件，支持自适应和自定义动画。"
+                    ]
+                },
+                {
+                    "image": "duotune-cook.png",
+                    "title": "[『双色调烘培师』](https://github.com/daidr/DuotuneCook)",
+                    "content": [
+                        "一个用来生成双色调图片的在线工具，技术栈是Vue3+Windicss。因为看到了iOS系统的锁屏滤镜，所以心血来潮做了这个小工具。该工具支持通过拖拽或点选来上传图片，并在前端完成双色调处理。"
+                    ]
+                },
+                {
+                    "image": "ghauth.png",
+                    "title": "[GHAuth MC第三方验证](https://github.com/daidr/DuotuneCook)",
+                    "content": [
+                        "一个第三方的Minecraft身份验证服务端，MC服务器能够通过安装前置插件，与鉴权服务对接，实现第三方登录、皮肤管理等功能。使用Koa+MongoDB+Pug开发，前端使用了Bootstrap样式库。"
+                    ],
+                    "time": "2021"
+                }
+            ]
+        },
+        {
+            "title": "其他",
+            "items": [
+                {
+                    "title": "乐于学习与分享",
+                    "content": [
+                        "本人喜欢学习新的技术，也乐于分享自己的学习心得。我会在我的博客上记录自己的学习过程，喜欢用实践来验证自己的理解，通过小项目来巩固自己的知识。",
+                        "在使用框架或库的时候，遇到问题也会尝试自己去修复或补充，向 [vitesse-webext](https://github.com/antfu/vitesse-webext/pull/89)、[WindiCSS](https://github.com/windicss/windicss/pull/769)、[wasm-bindgen](https://github.com/rustwasm/wasm-bindgen/pull/3124) 等提交过 PR。"
+                    ]
+                },
+                {
+                    "title": "英语能力",
+                    "content": [
+                        "已过CET-4和CET-6，英语水平能满足日常使用需求。"
+                    ]
+                }
+            ]
+        }
+    ]
+}
