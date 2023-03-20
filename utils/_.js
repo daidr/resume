@@ -14,6 +14,10 @@ export const debounce = (fn, delay) => {
 };
 
 export const emptyDir = async (path) => {
+  // 如果文件夹不存在，先创建
+  if (!(await fs.access(path).catch(() => false))) {
+    await fs.mkdir(path, { recursive: true });
+  }
   const files = await fs.readdir(path);
   for (let file of files) {
     const filePath = join(path, file);
