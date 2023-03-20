@@ -1,0 +1,62 @@
+<header>
+  <h1 class="header__name"><%= content.name %></h1>
+  <nav class="header__profile-wrapper">
+    <% content.profiles.forEach(function(item) { %>
+    <a
+      href="<%= item.link || '' %>"
+      target="_blank"
+      class="header__profile-item"
+      title="<%= item.alt || '' %>"
+      rel="noopener"
+    >
+      <%- icons[item.icon] -%> <%= item.label -%>
+    </a>
+    <% }); %>
+  </nav>
+</header>
+
+<style>
+  .header__name {
+    margin-bottom: 0.2em;
+  }
+
+  .header__profile-wrapper {
+    display: flex;
+    gap: 5px 15px;
+    flex-wrap: wrap;
+  }
+
+  .header__profile-item {
+    text-decoration: none;
+    color: #747474;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    position: relative;
+    transition: padding 0.15s cubic-bezier(.4,0,.2,1);
+  }
+
+  .header__profile-item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    content: "";
+    background-color: rgba(158, 158, 158, 0.2);
+    border-radius: 10px;
+    transition: height 0.15s cubic-bezier(.4,0,.2,1);
+  }
+
+  .header__profile-item:hover {
+    padding: 0 10px;
+  }
+
+  .header__profile-item:hover::after {
+    height: 100%;
+  }
+
+  .header__profile-item svg {
+    margin-right: 5px;
+  }
+</style>
